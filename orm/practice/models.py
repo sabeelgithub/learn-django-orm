@@ -14,9 +14,10 @@ class Student(models.Model):
     username = models.CharField(max_length=20)  
     first_name = models.CharField(max_length=30)  
     last_name = models.CharField(max_length=30)  
-    mobile = models.IntegerField()  
+    mobile = models.IntegerField(null=True)  
     email = models.EmailField()  
     teacher_name = models.ForeignKey(Teacher, blank = True, null = True, on_delete= models.CASCADE)
+    marks = models.IntegerField(default=0)
   
     def __str__(self):  
         return "%s %s" % (self.first_name, self.last_name)
